@@ -1,0 +1,7 @@
+# Stop forwarding
+nfv 1; stop
+nfv 2; stop
+
+# Clear all of patches
+nfv 1; patch reset
+nfv 2; patch reset

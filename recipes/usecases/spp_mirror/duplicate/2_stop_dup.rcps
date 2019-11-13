@@ -1,0 +1,10 @@
+# Delete ports
+mirror 1; port del phy:0 rx mir
+mirror 1; port del phy:1 tx mir
+mirror 1; port del phy:2 tx mir
+
+# Stop component
+mirror 1; component stop mir
+
+# Exit spp_mirror
+mirror 1; exit

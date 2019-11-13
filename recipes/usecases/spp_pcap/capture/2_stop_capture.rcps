@@ -1,0 +1,5 @@
+# Stop capture
+pcap 1; stop
+
+# Exit spp_pcap
+pcap 1; exit

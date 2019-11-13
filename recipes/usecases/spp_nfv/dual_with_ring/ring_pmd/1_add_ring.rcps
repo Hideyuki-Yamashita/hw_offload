@@ -1,0 +1,3 @@
+# Add ring
+nfv 1; add ring:0
+nfv 1; status

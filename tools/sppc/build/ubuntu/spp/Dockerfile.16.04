@@ -1,0 +1,38 @@
+FROM yasufum/spp-base:16.04
+
+ARG rte_sdk
+ARG rte_target
+ARG home_dir
+ARG dpdk_repo
+ARG dpdk_branch
+ARG spp_repo
+ARG spp_branch
+ARG spp_dir
+
+ENV http_proxy ${http_proxy}
+ENV https_proxy ${https_proxy}
+ENV no_proxy ${no_proxy}
+ENV RTE_SDK ${rte_sdk}
+ENV RTE_TARGET ${rte_target}
+ENV SPP_DIR ${spp_dir}
+ENV PATH ${rte_sdk}/${rte_target}/app:${PATH}
+ENV PATH ${home_dir}/${spp_dir}/src/primary/${rte_target}/:${PATH}
+ENV PATH ${home_dir}/${spp_dir}/src/nfv/${rte_target}/:${PATH}
+ENV PATH ${home_dir}/${spp_dir}/src/vf/${rte_target}/:${PATH}
+ENV PATH ${home_dir}/${spp_dir}/src/vm/${rte_target}/:${PATH}
+
+WORKDIR $home_dir
+RUN git clone ${dpdk_branch} ${dpdk_repo}
+RUN git clone ${spp_branch} ${spp_repo}
+
+# Compile DPDK and SPP
+WORKDIR ${rte_sdk}
+RUN make -j install T=${rte_target}
+
+WORKDIR ${home_dir}/${spp_dir}
+RUN make -j
+
+# Set working directory when container is launched
+WORKDIR ${home_dir}
+ADD env.sh ${home_dir}/env.sh
+RUN echo "source ${home_dir}/env.sh" >> ${home_dir}/.bashrc

@@ -1,0 +1,5 @@
+# Pre status check
+pcap 1; status
+
+# Start capture
+pcap 1; start

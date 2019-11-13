@@ -1,0 +1,19 @@
+# Add rings to nfv 1
+nfv 1; add ring:0
+nfv 1; add ring:1
+
+# Add rings to nfv 2
+nfv 2; add ring:0
+nfv 2; add ring:1
+
+# Configure as Bi-Directional L2fwd
+nfv 1; patch phy:0 ring:0
+nfv 1; patch ring:1 phy:0
+nfv 2; patch phy:1 ring:1
+nfv 2; patch ring:0 phy:1
+
+# Start forwarding
+nfv 1; forward
+nfv 2; forward
+nfv 1; status
+nfv 2; status

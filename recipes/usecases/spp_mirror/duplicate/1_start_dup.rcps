@@ -1,0 +1,7 @@
+# Start component
+mirror 1; component start mir 2 mirror
+
+# Add ports
+mirror 1; port add phy:0 rx mir
+mirror 1; port add phy:1 tx mir
+mirror 1; port add phy:2 tx mir

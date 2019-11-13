@@ -1,0 +1,5 @@
+# Add pcap
+nfv 1; add pcap:1
+
+# check pcap file
+ls /tmp

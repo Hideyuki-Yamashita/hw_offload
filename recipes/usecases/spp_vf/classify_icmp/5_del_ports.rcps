@@ -1,0 +1,15 @@
+# Delete ports classifier
+vf 1; port del phy:0 rx cls
+vf 1; port del ring:0 tx cls
+vf 1; port del ring:1 tx cls
+
+# Delete ports forwarders
+vf 1; port del ring:0 rx fwd1
+vf 1; port del ring:2 tx fwd1
+vf 1; port del ring:1 rx fwd2
+vf 1; port del ring:3 tx fwd2
+
+# Delete ports merger
+vf 1; port del ring:2 rx mgr
+vf 1; port del ring:3 rx mgr
+vf 1; port del phy:1 tx mgr

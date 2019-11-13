@@ -1,0 +1,3 @@
+# Delete ring
+nfv 1; del ring:0
+nfv 1; status

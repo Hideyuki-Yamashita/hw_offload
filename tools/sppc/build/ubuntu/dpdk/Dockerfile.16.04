@@ -1,0 +1,28 @@
+FROM yasufum/dpdk-base:16.04
+
+ARG rte_sdk
+ARG rte_target
+ARG home_dir
+ARG dpdk_repo
+ARG dpdk_branch
+
+ENV PATH ${rte_sdk}/${rte_target}/app:${PATH}
+ENV http_proxy ${http_proxy}
+ENV https_proxy $https_proxy
+ENV no_proxy ${no_proxy}
+ENV RTE_SDK ${rte_sdk}
+ENV RTE_TARGET ${rte_target}
+
+WORKDIR $home_dir
+RUN git clone $dpdk_branch $dpdk_repo
+
+# Compile DPDK
+WORKDIR $rte_sdk
+RUN make -j install T=$rte_target
+RUN make -j app T=$rte_target
+RUN make -j examples T=$rte_target
+
+# Set working directory when container is launched
+WORKDIR ${home_dir}
+ADD env.sh ${home_dir}/env.sh
+RUN echo "source ${home_dir}/env.sh" >> ${home_dir}/.bashrc

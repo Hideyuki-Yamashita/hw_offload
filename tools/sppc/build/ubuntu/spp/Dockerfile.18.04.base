@@ -1,0 +1,20 @@
+FROM ubuntu:18.04
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && apt-get install -y \
+    git \
+    gcc \
+    python \
+    pciutils \
+    make \
+    libnuma-dev \
+    gcc-multilib \
+    libarchive-dev \
+    linux-headers-$(uname -r) \
+    libpcap-dev \
+    liblz4-dev \
+    liblz4-tool \
+    pkg-config \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*

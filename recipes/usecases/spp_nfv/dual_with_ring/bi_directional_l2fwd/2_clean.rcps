@@ -1,0 +1,13 @@
+# Stop forwarding
+nfv 1; stop
+nfv 2; stop
+
+# Clear all of patches
+nfv 1; patch reset
+nfv 2; patch reset
+
+# Delete all rings
+nfv 1; del ring:0
+nfv 1; del ring:1
+nfv 2; del ring:0
+nfv 2; del ring:1

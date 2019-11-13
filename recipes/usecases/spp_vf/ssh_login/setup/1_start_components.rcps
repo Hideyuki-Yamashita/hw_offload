@@ -1,0 +1,7 @@
+# Start component for path1
+vf 1; component start cls1 2 classifier_mac
+vf 1; component start fwd1 3 forward
+vf 1; component start fwd2 4 forward
+vf 1; component start fwd3 5 forward
+vf 1; component start fwd4 6 forward
+vf 1; component start mgr1 7 merge

@@ -1,0 +1,19 @@
+# classifier
+vf 1; port add phy:1 rx cls2
+vf 1; port add ring:4 tx cls2
+vf 1; port add ring:5 tx cls2
+
+# forwarders
+vf 1; port add ring:4 rx fwd5
+vf 1; port add vhost:1 tx fwd5
+vf 1; port add ring:5 rx fwd6
+vf 1; port add vhost:3 tx fwd6
+vf 1; port add vhost:1 rx fwd7
+vf 1; port add ring:6 tx fwd7
+vf 1; port add vhost:3 rx fwd8
+vf 1; port add ring:7 tx fwd8
+
+# merger
+vf 1; port add ring:6 rx mgr2
+vf 1; port add ring:7 rx mgr2
+vf 1; port add phy:1 tx mgr2

@@ -1,0 +1,20 @@
+# classifier1
+sec 1;port del phy:0 rx classifier1
+sec 1;port del ring:0 tx classifier1
+sec 1;port del ring:1 tx classifier1
+# forwarder1
+sec 1;port del ring:0 rx forwarder1
+sec 1;port del vhost:0 tx forwarder1
+# forwarder2
+sec 1;port del ring:1 rx forwarder2
+sec 1;port del vhost:2 tx forwarder2
+# forwarder3
+sec 1;port del vhost:0 rx forwarder3
+sec 1;port del ring:2 tx forwarder3
+# forwarder4
+sec 1;port del vhost:2 rx forwarder4
+sec 1;port del ring:3 tx forwarder4
+# merger1
+sec 1;port del ring:2 rx merger1
+sec 1;port del ring:3 rx merger1
+sec 1;port del phy:0 tx merger1

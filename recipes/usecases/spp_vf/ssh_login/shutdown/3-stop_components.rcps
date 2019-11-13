@@ -1,0 +1,7 @@
+# Stop component for path1
+sec 1;component stop classifier1
+sec 1;component stop forwarder1
+sec 1;component stop forwarder2
+sec 1;component stop forwarder3
+sec 1;component stop forwarder4
+sec 1;component stop merger1

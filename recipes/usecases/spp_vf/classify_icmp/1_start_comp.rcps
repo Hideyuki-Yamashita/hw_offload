@@ -1,0 +1,5 @@
+# Start components
+vf 1; component start cls 3 classifier
+vf 1; component start fwd1 4 forward
+vf 1; component start fwd2 5 forward
+vf 1; component start mgr 6 merge

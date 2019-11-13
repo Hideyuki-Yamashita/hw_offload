@@ -1,0 +1,6 @@
+# Restore packets
+nfv 2; patch pcap:2 phy:1
+
+# Start forwarding
+nfv 2; forward
+nfv 2; status

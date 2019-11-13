@@ -1,0 +1,15 @@
+# Configures classifier
+vf 1; port add phy:0 rx cls
+vf 1; port add ring:0 tx cls
+vf 1; port add ring:1 tx cls
+
+# Configures forwarders
+vf 1; port add ring:0 rx fwd1
+vf 1; port add ring:2 tx fwd1
+vf 1; port add ring:1 rx fwd2
+vf 1; port add ring:3 tx fwd2
+
+# Configures merger
+vf 1; port add ring:2 rx mgr
+vf 1; port add ring:3 rx mgr
+vf 1; port add phy:1 tx mgr

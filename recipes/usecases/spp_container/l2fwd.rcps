@@ -1,0 +1,22 @@
+nfv 1; add vhost:1
+nfv 2; add vhost:2
+nfv 3; add vhost:3
+nfv 4; add vhost:4
+
+nfv 1; add ring:1
+nfv 2; add ring:0
+nfv 3; add ring:0
+nfv 4; add ring:1
+
+topo_subgraph add c1 vhost:1;vhost:2
+topo_subgraph add c2 vhost:3;vhost:4
+
+nfv 1; patch ring:1 vhost:1
+nfv 2; patch vhost:2 ring:0
+nfv 3; patch ring:0 vhost:3
+nfv 4; patch vhost:4 ring:1
+
+nfv 1; forward
+nfv 2; forward
+nfv 3; forward
+nfv 4; forward

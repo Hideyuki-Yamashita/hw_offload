@@ -1,0 +1,3 @@
+# Register MAC addresses to mgr1
+vf 1; classifier_table add mac 52:54:00:12:34:56 ring:0
+vf 1; classifier_table add mac 52:54:00:12:34:58 ring:1

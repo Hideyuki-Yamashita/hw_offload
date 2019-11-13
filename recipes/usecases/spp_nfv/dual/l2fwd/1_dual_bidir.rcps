@@ -1,0 +1,9 @@
+# Configure as L2fwd
+nfv 1; patch phy:0 phy:1
+nfv 2; patch phy:1 phy:0
+
+# Start forwarding
+nfv 1; forward
+nfv 2; forward
+nfv 1; status
+nfv 2; status

@@ -1,0 +1,17 @@
+nfv 1; add vhost:1
+nfv 1; add vhost:2
+nfv 2; add vhost:3
+nfv 2; add vhost:4
+nfv 1; add ring:0
+nfv 1; add ring:1
+nfv 2; add ring:0
+nfv 2; add ring:1
+
+nfv 1; patch ring:0 vhost:1
+nfv 1; patch vhost:2 ring:1
+nfv 3; patch ring:1 vhost:3
+nfv 4; patch vhost:4 ring:0
+nfv 1; forward
+nfv 2; forward
+nfv 3; forward
+nfv 4; forward

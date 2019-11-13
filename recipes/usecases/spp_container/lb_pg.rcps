@@ -1,0 +1,31 @@
+nfv 1; add vhost:1
+nfv 2; add vhost:2
+nfv 3; add vhost:3
+nfv 4; add vhost:4
+nfv 5; add vhost:5
+nfv 6; add vhost:6
+nfv 1; add ring:0
+nfv 2; add ring:1
+nfv 3; add ring:2
+nfv 4; add ring:0
+nfv 5; add ring:1
+nfv 6; add ring:2
+
+nfv 1; patch vhost:1 ring:0
+nfv 2; patch ring:1 vhost:2
+nfv 3; patch ring:2 vhost:3
+nfv 4; patch ring:0 vhost:4
+nfv 5; patch vhost:5 ring:1
+nfv 6; patch vhost:6 ring:2
+
+# define c1 and c2 to help your understanding
+topo_subgraph add c1 vhost:1,vhost:2,vhost:3
+topo_subgraph add c2 vhost:4,vhost:5,vhost:6
+topo term
+
+nfv 1; forward
+nfv 2; forward
+nfv 3; forward
+nfv 4; forward
+nfv 5; forward
+nfv 6; forward

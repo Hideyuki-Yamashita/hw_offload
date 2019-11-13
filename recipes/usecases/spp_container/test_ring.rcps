@@ -1,0 +1,16 @@
+nfv 1; add ring:0
+nfv 2; add ring:1
+nfv 2; add ring:2
+nfv 3; add ring:2
+nfv 3; add ring:3
+nfv 4; add ring:3
+
+nfv 1; patch phy:0 ring:0
+nfv 2; patch ring:0 ring:1
+nfv 3; patch ring:1 ring:2
+nfv 3; patch ring:2 ring:3
+nfv 4; patch ring:3 phy:1
+nfv 1; forward
+nfv 2; forward
+nfv 3; forward
+nfv 4; forward

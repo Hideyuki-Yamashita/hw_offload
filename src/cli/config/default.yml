@@ -1,0 +1,49 @@
+# Common config
+max_secondary:
+    val: 16
+    desc: The maximum number of secondary processes
+prompt:
+    val: "spp > "
+    desc: Command prompt
+
+# Secondary common config
+sec_mem:
+    val: -m 512
+    desc: Mem size
+sec_m_lcore:
+    val: 2
+    desc: Shared master lcore among secondaries
+sec_wait_launch:
+    val: 0.5
+    desc: Wait for launching secondary process in sec
+sec_vhost_cli:
+    val: ""
+    desc: Vhost client mode, activated if set any of values
+
+# spp_nfv
+sec_nfv_nof_lcores:
+    val: 1
+    desc: Default num of lcores for workers of spp_nfv
+
+# spp_vf
+sec_vf_nof_lcores:
+    val: 3
+    desc: Default num of lcores for workers of spp_vf
+
+# spp_mirror
+sec_mirror_nof_lcores:
+    val: 2
+    desc: Default num of lcores for workers of spp_mirror
+
+# spp_pcap
+sec_pcap_nof_lcores:
+    val: 2
+    desc: Default num of lcores for workers of spp_pcap
+sec_pcap_port:
+    val: "phy:0"
+    desc: Default captured port
+
+# topo
+topo_size:
+    val: 60%
+    desc: Percentage or ratio of topo

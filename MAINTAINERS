@@ -1,0 +1,28 @@
+SPP Maintainers
+================
+
+The intention of this file is to provide a set of names that we can rely on
+for helping in patch reviews and questions.
+These names are additional recipients for emails sent to spp@dpdk.org.
+Please avoid private emails.
+
+Descriptions of section entries:
+
+  M: Maintainer's Full Name <address@domain>
+  T: Git tree location.
+  F: Files and directories with wildcard patterns.
+     A trailing slash includes all files and subdirectory files.
+     A wildcard includes all files but not subdirectories.
+     One pattern per line. Multiple F: lines acceptable.
+  X: Files and directories exclusion, same rules as F:
+  K: Keyword regex pattern to match content.
+     One regex pattern per line. Multiple K: lines acceptable.
+
+
+General Project Administration
+------------------------------
+
+Main Branch
+M: Ferruh Yigit <ferruh.yigit@intel.com>
+M: Yasufumi Ogawa <yasufum.o@gmail.com>
+T: git://dpdk.org/apps/spp

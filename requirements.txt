@@ -1,0 +1,13 @@
+# spp-ctl
+eventlet
+bottle
+netaddr
+
+# SPP CLI
+pyyaml
+tornado
+websocket-client
+
+# docs
+sphinx
+sphinx-rtd-theme

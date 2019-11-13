@@ -1,0 +1,8 @@
+# Stop component
+vf 1; component stop cls
+vf 1; component stop fwd1
+vf 1; component stop fwd2
+vf 1; component stop mgr
+
+# exit spp_vf
+vf 1; exit

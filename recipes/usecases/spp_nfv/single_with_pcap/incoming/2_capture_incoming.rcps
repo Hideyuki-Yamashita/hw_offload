@@ -1,0 +1,6 @@
+# Capture incoming packets from phy:0
+nfv 1; patch phy:0 pcap:1
+
+# Start forwarding
+nfv 1; forward
+nfv 1; status

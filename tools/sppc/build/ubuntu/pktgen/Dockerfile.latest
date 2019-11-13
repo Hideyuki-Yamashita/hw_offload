@@ -1,0 +1,37 @@
+FROM yasufum/pktgen-base:latest
+
+ARG rte_sdk
+ARG rte_target
+ARG home_dir
+ARG dpdk_repo
+ARG dpdk_branch
+ARG pktgen_repo
+ARG pktgen_branch
+ARG pktgen_dir
+
+ENV PATH ${rte_sdk}/${rte_target}/app:${PATH}
+ENV http_proxy ${http_proxy}
+ENV https_proxy $https_proxy
+ENV no_proxy ${no_proxy}
+ENV RTE_SDK ${rte_sdk}
+ENV RTE_TARGET ${rte_target}
+ENV PKTGEN_DIR ${pktgen_dir}
+ENV PATH ${rte_sdk}/${rte_target}/app:${PATH}
+ENV PATH ${home_dir}/${pktgen_dir}/app/${rte_target}/:${PATH}
+ENV DEBIAN_FRONTEND noninteractive
+
+WORKDIR $home_dir
+RUN git clone ${dpdk_branch} ${dpdk_repo}
+RUN git clone ${pktgen_branch} ${pktgen_repo}
+
+# Compile DPDK and pktgen
+WORKDIR ${rte_sdk}
+RUN make -j install T=${rte_target}
+
+WORKDIR ${home_dir}/${pktgen_dir}
+RUN make -j
+
+# Set working directory when container is launched
+WORKDIR ${home_dir}
+ADD env.sh ${home_dir}/env.sh
+RUN echo "source ${home_dir}/env.sh" >> ${home_dir}/.bashrc

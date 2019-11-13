@@ -1,0 +1,8 @@
+# Stop forwarding
+nfv 2; stop
+
+# Clear patch
+nfv 2; patch reset
+
+# Delete pcap
+nfv 2; del pcap:2

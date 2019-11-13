@@ -1,0 +1,20 @@
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && apt-get install -y \
+    git \
+    gcc \
+    python \
+    pciutils \
+    make \
+    libnuma-dev \
+    gcc-multilib \
+    libarchive-dev \
+    linux-headers-$(uname -r) \
+    libpcap-dev \
+    liblua5*-dev \
+    pkg-config \
+    wget \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,3 @@
+# Register MAC address to classifier
+spp > vf 1; classifier_table add mac 52:54:00:12:34:57 ring:4
+spp > vf 1; classifier_table add mac 52:54:00:12:34:59 ring:5

@@ -1,0 +1,7 @@
+# Stop component to spp_vf
+sec 1;component stop classifier2
+sec 1;component stop forwarder5
+sec 1;component stop forwarder6
+sec 1;component stop forwarder7
+sec 1;component stop forwarder8
+sec 1;component stop merger2
