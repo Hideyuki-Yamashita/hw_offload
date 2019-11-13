@@ -25,6 +25,21 @@ the server process of the sample application.
 It does not work for packet forwaring without in some usecases, but just
 provide rings and memory pools for secondary processes.
 
+Many Network Interface Cards(NICs) in the market has the ability called
+multi-queue. By using multi-queue, we can scale up the system performance,
+because multiple rx/tx-threads on each CPU core could handle up to
+40-100Gbps traffic. ''spp_primary'' supports multi-queue setup feature in
+its initialization process.
+Besides, for the use of multiple rx threads, some distribution conditions
+(e.g. destination MAC address) have to be setup in the NIC. In DPDK,
+``rte_flow`` APIs enable such setup operation, ``spp_primary`` supports
+commands for ``rte_flow`` APIs.
+
+Some NICs provide the vlan-entag/detag operations. By using such ability,
+we can reduce the load of vlan-entag/detag operations in SPP, and this could
+bring us performance improvement of SPP's packet handling. ``spp_primary``
+supports commands for vlan-entag/detag operations by using ``rte_flow`` in
+DPDK.
 
 Master and Worker Threads
 -------------------------
